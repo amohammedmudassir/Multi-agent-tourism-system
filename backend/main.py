@@ -6,6 +6,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from backend.api.routes import router
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Load environment variables
 load_dotenv()
@@ -16,6 +18,14 @@ app = FastAPI(
     description="Multi-agent tourism system API",
     version="1.0.0"
 )
+    app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # you can later restrict to your Vercel domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    )
+
 
 # Configure CORS
 app.add_middleware(

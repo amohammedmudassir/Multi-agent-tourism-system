@@ -6,6 +6,7 @@ import WeatherCard from './components/WeatherCard'
 import PlacesCard from './components/PlacesCard'
 import LoadingSpinner from './components/LoadingSpinner'
 import ErrorMessage from './components/ErrorMessage'
+import { API_BASE_URL } from './config';
 
 function App() {
   const [query, setQuery] = useState('')
@@ -26,7 +27,7 @@ function App() {
     setPlaceName(null)
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/query`, body)
+      const response = await axios.post(`${API_BASE_URL}/api/query`, data)
       const data = response.data
 
       // Check if we have at least one result
