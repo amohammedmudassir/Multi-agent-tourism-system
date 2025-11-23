@@ -27,7 +27,7 @@ function App() {
     setPlaceName(null)
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/query`, data)
+      const response = await axios.post(`${API_BASE_URL || ''}/api/query`, { query })
       const data = response.data
 
       // Check if we have at least one result
